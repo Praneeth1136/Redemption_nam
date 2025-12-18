@@ -1,0 +1,25 @@
+{
+  "name": "start_redemption",
+  "version": "1.0.0",
+  "description": "...",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Praneeth1136/Redemption_nam.git"
+  },
+  "author": "Praneeth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Praneeth1136/Redemption_nam/issues"
+  },
+  "homepage": "https://github.com/Praneeth1136/Redemption_nam#readme",
+  "devDependencies": {
+    "parcel": "^2.16.3"
+  },
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  }
+}
