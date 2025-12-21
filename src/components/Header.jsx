@@ -1,0 +1,21 @@
+import {LOGO_URL} from "../utils/constant";
+
+const Header = () => {
+    return (
+        <div className="header">
+            <div className="logo">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/011/294/606/small/burger-logo-delicious-happy-fun-food-sandwich-restaurant-burger-symbol-icon-illustration-vector.jpg" />
+            </div>
+            <div className="nav-items">
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+    );
+};
+
+export default Header;

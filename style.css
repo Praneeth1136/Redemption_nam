@@ -53,3 +53,14 @@
     cursor:pointer;
     border: 1px solid black;
 }
+
+.filter_btn {
+    margin:10px;
+    color:white;
+    background-color:orangered;
+    border : none;
+    border-radius:3px;
+    height:50px;
+    width:100px;
+    cursor:pointer;
+}

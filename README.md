@@ -28,3 +28,25 @@
 1. React have three attributes one is tag, other is attribute like id or class, other is message
 2. The most costliest thing in browser is that removing and adding nodes inside the DOM tree to prevent that JS libraries came into the picture
 3. Order of files matter a lot
+
+
+
+/*
+- App
+ -Header
+  -Logo
+  -Nav-items
+
+ -Body
+  -Search
+  -Restaurant Container
+   -Restaurant Card
+    - Img
+    - Name of Res,Star Rating, Cuisines,Delivery time
+
+
+ -Footer
+  -Copyright
+  -Links
+  -Address
+*/
