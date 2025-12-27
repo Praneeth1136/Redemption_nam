@@ -1,4 +1,4 @@
-const resList = [
+export const resList = [
     {
         info: {
             id: '10583',
@@ -614,4 +614,174 @@ const resList = [
     },
 ];
 
-export default resList;
+export const MOCK_MENU = [
+  {
+    title: "Recommended",
+    itemCards: [
+      {
+        card: {
+          info: {
+            id: "1",
+            name: "Paneer Butter Masala",
+            price: 250,
+            description: "Creamy and rich North Indian curry with soft paneer cubes.",
+            isVeg: true,
+            rating: 4.5
+          }
+        }
+      },
+      {
+        card: {
+          info: {
+            id: "2",
+            name: "Chicken Biryani",
+            price: 320,
+            description: "Fragrant basmati rice cooked with tender chicken pieces and aromatic spices.",
+            isVeg: false,
+            rating: 4.7
+          }
+        }
+      }
+    ]
+  },
+  {
+    title: "Main Course",
+    itemCards: [
+      {
+        card: {
+          info: {
+            id: "3",
+            name: "Butter Chicken",
+            price: 280,
+            description: "Tender chicken in a rich, creamy tomato-based gravy.",
+            isVeg: false,
+            rating: 4.6
+          }
+        }
+      },
+      {
+        card: {
+          info: {
+            id: "4",
+            name: "Dal Makhani",
+            price: 180,
+            description: "Slow-cooked black lentils in butter and cream.",
+            isVeg: true,
+            rating: 4.4
+          }
+        }
+      },
+      {
+        card: {
+          info: {
+            id: "5",
+            name: "Kadai Paneer",
+            price: 240,
+            description: "Cottage cheese cooked with bell peppers in a spicy gravy.",
+            isVeg: true,
+            rating: 4.3
+          }
+        }
+      }
+    ]
+  },
+  {
+    title: "Thalis",
+    itemCards: [
+      {
+        card: {
+          info: {
+            id: "6",
+            name: "Veg Thali",
+            price: 180,
+            description: "A wholesome meal with roti, rice, dal, sabzi, and dessert.",
+            isVeg: true,
+            rating: 4.5
+          }
+        }
+      },
+      {
+        card: {
+          info: {
+            id: "7",
+            name: "Non-Veg Thali",
+            price: 250,
+            description: "Complete meal with chicken curry, rice, roti, dal, and salad.",
+            isVeg: false,
+            rating: 4.6
+          }
+        }
+      }
+    ]
+  },
+  {
+    title: "Breads",
+    itemCards: [
+      {
+        card: {
+          info: {
+            id: "8",
+            name: "Butter Naan",
+            price: 50,
+            description: "Soft and fluffy naan brushed with butter.",
+            isVeg: true,
+            rating: 4.4
+          }
+        }
+      },
+      {
+        card: {
+          info: {
+            id: "9",
+            name: "Garlic Naan",
+            price: 60,
+            description: "Naan topped with fresh garlic and coriander.",
+            isVeg: true,
+            rating: 4.5
+          }
+        }
+      },
+      {
+        card: {
+          info: {
+            id: "10",
+            name: "Tandoori Roti",
+            price: 30,
+            description: "Whole wheat bread baked in tandoor.",
+            isVeg: true,
+            rating: 4.3
+          }
+        }
+      }
+    ]
+  },
+  {
+    title: "Desserts",
+    itemCards: [
+      {
+        card: {
+          info: {
+            id: "11",
+            name: "Gulab Jamun",
+            price: 80,
+            description: "Soft milk dumplings soaked in sugar syrup.",
+            isVeg: true,
+            rating: 4.6
+          }
+        }
+      },
+      {
+        card: {
+          info: {
+            id: "12",
+            name: "Rasmalai",
+            price: 100,
+            description: "Soft paneer patties in creamy, sweetened milk.",
+            isVeg: true,
+            rating: 4.7
+          }
+        }
+      }
+    ]
+  }
+];

@@ -2,6 +2,7 @@ import RestaurantCard from './RestaurantCard';
 // import resList from '../utils/mockData';
 import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
 
 const Body = () => {
     //Local State Variable - Super powerful variable
@@ -19,7 +20,7 @@ const Body = () => {
 
     const fetchData = async () => {
         const data = await fetch(
-            'https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.9690247&lng=72.8205292&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
+            'https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.9690247&lng=72.8205292&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING',
         );
 
         const json = await data.json();
@@ -32,10 +33,7 @@ const Body = () => {
         // // );
         // setfilteredRestaurants(json?.data?.cards);
 
-        const restaurants =
-  json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
-
-
+        const restaurants = json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants; //Cards
 
         setlistOfRestaurants(restaurants);
         setfilteredRestaurants(restaurants);
@@ -65,11 +63,11 @@ const Body = () => {
                         onClick={() => {
                             console.log(searchText);
 
-                            const filteredRestaurants = listOfRestaurants.filter(res =>
+                            const filteredRestaurantss = listOfRestaurants.filter(res =>
                                 res.info.name.toLowerCase().includes(searchText.toLowerCase()),
                             );
 
-                            setfilteredRestaurants(filteredRestaurants);
+                            setfilteredRestaurants(filteredRestaurantss);
                         }}
                     >
                         Search
@@ -79,18 +77,28 @@ const Body = () => {
                     className="filter_btn"
                     onClick={() => {
                         const filteredList = listOfRestaurants.filter(
-                            res => res.info.avgRating > 4,
+                            res => res.info.avgRating > 4.0,
                         );
                         console.log(listOfRestaurants);
                         setlistOfRestaurants(filteredList);
                     }}
                 >
-                    Filter
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="filter-icon"
+                    >
+                        <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
+                    </svg>
+                    Top Rated
                 </button>
             </div>
             <div className="res_container">
                 {filteredRestaurants.map((restaurant, index) => (
-                    <RestaurantCard key={index} resData={restaurant} />
+                    <Link to="/restaurants/:resid" key={index}>
+                        <RestaurantCard resData={restaurant} />
+                    </Link>
                 ))}
             </div>
         </div>
