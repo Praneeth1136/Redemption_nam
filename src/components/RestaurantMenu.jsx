@@ -35,8 +35,10 @@
 import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { MOCK_MENU } from '../utils/mockData';
+import { useParams } from 'react-router-dom';
 
 const RestaurantMenu = () => {
+    const { resid } = useParams();
     // Initializing with the mock data provided
     const [resInfo, setresInfo] = useState(MOCK_MENU);
 
