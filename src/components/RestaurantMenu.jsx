@@ -36,11 +36,14 @@ import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { MOCK_MENU } from '../utils/mockData';
 import { useParams } from 'react-router-dom';
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-    const { resid } = useParams();
+    // const { resid } = useParams();
     // Initializing with the mock data provided
-    const [resInfo, setresInfo] = useState(MOCK_MENU);
+    // const [resInfo, setresInfo] = useState(MOCK_MENU);
+
+    const resInfo = useRestaurantMenu(MOCK_MENU);
 
     // If the data is still loading or empty, show Shimmer
     if (!resInfo || resInfo.length === 0) {
