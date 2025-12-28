@@ -1,40 +1,75 @@
-import React from 'react';
+import React from "react";
 
 class UserClass extends React.Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props){
-        super(props);
+    this.state = {
+      userInfo: {
+        name: "Dummy",
+        location: "Default",
+      },
+    };
+    //console.log(this.props.name + "Child Constructor");
+  }
 
-        console.log(props)
+  async componentDidMount() {
+    //console.log(this.props.name + "Child Component Did Mount");
+    // Api call
 
-        this.state = {
-            count:0,
-            count1:1
-        }
-    }
+    const data = await fetch("https://api.github.com/users/Praneeth1136");
+    const json = await data.json();
 
-    componentDidMount(){
-        
-    }
+    this.setState({
+      userInfo: json,
+    });
 
-    render() {
-        return (
-            <div className="user_card">
-                <h1>Count = {this.state.count}</h1>
-                <button onClick={
-                    ()=>{
-                        this.setState({
-                            count:this.state.count+1,
-                        })
-                    }
-                }>Count Increase</button>
-                {/* <h1>Count = {this.state.count1}</h1> */}
-                <h1>Name: {this.props.name}</h1>
-                <h1>Location: Vizag</h1>
-                <h1>Contact :Pra@gmail</h1>
-            </div>
-        );
-    }
+    //console.log(json);
+  }
+
+  componentDidUpdate() {
+    //console.log("Component Did Update");
+  }
+
+  componentWillUnmount() {
+    //console.log("Component Will Unmount");
+  }
+
+  render() {
+    console.log(this.props.name + "Child Render");
+
+    const { name, location, avatar_url } = this.state.userInfo;
+    return (
+      <div className="user-card">
+        <img src={avatar_url} />
+        <h2>Name: {name}</h2>
+        <h3>Location: {location}</h3>
+        <h4>Contact: @akshaymarch7</h4>
+      </div>
+    );
+  }
 }
 
 export default UserClass;
+
+/****
+ *
+ * --- MOUNTING ----
+ *
+ * Constructor (dummy)
+ * Render (dummy)
+ *      <HTML Dummy >
+ * Component Did MOunt
+ *      <API Call>
+ *      <this.setState> -> State variable is updated
+ *
+ * ---- UPDATE
+ *
+ *      render(APi data)
+ *      <HTML (new API data>)
+ *      ccomponentDid Update
+ *
+ *
+ *
+ *
+ */
