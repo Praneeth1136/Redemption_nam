@@ -1,9 +1,10 @@
-import RestaurantCard from './RestaurantCard';
+import RestaurantCard, { withPromotedLabel } from './RestaurantCard';
 // import resList from '../utils/mockData';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
-import useOnlineStatus from "../utils/useOnlineStatus";
+import useOnlineStatus from '../utils/useOnlineStatus';
+import UserContext from '../utils/UseContext';
 
 const Body = () => {
     //Local State Variable - Super powerful variable
@@ -11,6 +12,10 @@ const Body = () => {
     const [filteredRestaurants, setfilteredRestaurants] = useState([]);
 
     const [searchText, setsearchText] = useState('');
+
+    const RestaurantPromoted = withPromotedLabel(RestaurantCard);
+
+    const { loggedInUser, setUserName } = useContext(UserContext);
 
     //Normal Variable
     // const listOfRestaurants = [];
@@ -38,11 +43,12 @@ const Body = () => {
 
         setlistOfRestaurants(restaurants);
         setfilteredRestaurants(restaurants);
+        // console.log(restaurants);
     };
 
     const onlineStatus = useOnlineStatus();
 
-    if(onlineStatus === false) return <h1>Looks like you are offline</h1>
+    if (onlineStatus === false) return <h1>Looks like you are offline</h1>;
 
     //Conditional Rendering
     if (listOfRestaurants.length === 0) {
@@ -77,6 +83,10 @@ const Body = () => {
                     >
                         Search
                     </button>
+                    <div>
+                        <label>Uername</label>
+                        <input value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
+                    </div>
                 </div>
                 <button
                     className="filter_btn"
@@ -86,6 +96,7 @@ const Body = () => {
                         );
                         console.log(listOfRestaurants);
                         setlistOfRestaurants(filteredList);
+                        setfilteredRestaurants(filteredList);
                     }}
                 >
                     <svg
@@ -102,7 +113,20 @@ const Body = () => {
             <div className="res_container">
                 {filteredRestaurants.map((restaurant, index) => (
                     <Link to="/restaurants/:resid" key={index}>
-                        <RestaurantCard resData={restaurant} />
+                        {/* <RestaurantCard resData={restaurant} /> */}
+                        {/* {restaurant?.info?.adAttribute ||
+                        restaurant?.info?.differentiatedUi?.displayType?.includes('ADS') ||
+                        restaurant?.info?.adTrackingId ? (
+                            <RestaurantPromoted resData={restaurant} />
+                        ) : (
+                            <RestaurantCard resData={restaurant} />
+                        )} */}
+
+                        {restaurant?.info?.availability?.opened ? (
+                            <RestaurantPromoted resData={restaurant} />
+                        ) : (
+                            <RestaurantCard resData={restaurant} />
+                        )}
                     </Link>
                 ))}
             </div>

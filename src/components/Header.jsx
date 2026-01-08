@@ -1,28 +1,43 @@
 import { LOGO_URL } from '../utils/constant';
-import { useState,useEffect } from 'react';
-import {Link} from "react-router-dom";
+import { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utils/useOnlineStatus';
 import Grocery from './Grocery';
+import UserContext from '../utils/UseContext';
 
 const Header = () => {
     const [btnNameReact, setbtnNameReact] = useState('Log-in');
 
-    useEffect(()=>{
-        console.log("Header Redered");
-    },[btnNameReact]);
+    const onlineStatus = useOnlineStatus();
 
-    
+    const { loggedInUser } = useContext(UserContext);
+
+    useEffect(() => {
+        console.log('Header Redered');
+    }, [btnNameReact]);
 
     return (
         <div className="header">
             <div className="logo">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/011/294/606/small/burger-logo-delicious-happy-fun-food-sandwich-restaurant-burger-symbol-icon-illustration-vector.jpg" />
+                <span className="ml-3 bg-red-500 text-white px-2 rounded">TW</span>
             </div>
             <div className="nav-items">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/About">About Us</Link></li>
-                    <li><Link to="/Contact">Contact</Link></li>
-                    <li><Link to="/Grocery">Grocery</Link></li>
+                    <li>Online Status: {onlineStatus ? '✅' : '🔴'}</li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/About">About Us</Link>
+                    </li>
+                    <li>
+                        <Link to="/Contact">Contact</Link>
+                    </li>
+                    <li>
+                        <Link to="/Grocery">Grocery</Link>
+                    </li>
+                    <li>{loggedInUser}</li>
                     <button
                         className="login_btn"
                         onClick={() => {

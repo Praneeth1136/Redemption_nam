@@ -6,8 +6,8 @@ const RestaurantCard = ({ resData }) => {
     // const { resName, cuisines
     // , rating, time } = props;
     // console.log(resData);
-    const {cloudinaryImageId,name,cuisines,avgRating} = resData?.info;
-    
+    const { cloudinaryImageId, name, cuisines = [], avgRating = 'N/A' } = resData?.info || {};
+
     return (
         <div className="res_card" style={styleCard}>
             <img
@@ -24,6 +24,21 @@ const RestaurantCard = ({ resData }) => {
             {/* <h4>${costForTwo}</h4> */}
         </div>
     );
+};
+
+//Higher Order Component
+
+//input - RestaurantCard  ==> RestaurantCardPromoted
+
+export const withPromotedLabel = RestaurantCard => {
+    return props => {
+        return (
+            <div>
+                <h1 className="promoted">Promoted</h1>
+                <RestaurantCard {...props} />
+            </div>
+        );
+    };
 };
 
 export default RestaurantCard;

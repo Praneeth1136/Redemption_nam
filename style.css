@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Global Reset & Base Styles */
 :root {
     --primary-color: #ff5200;
@@ -327,3 +331,18 @@ body {
     padding: 10px;
     border: 2px solid black;
 }
+
+.promoted{
+    color:rgb(22, 22, 70);
+    /* position:absolute; */
+    font-size:20px;
+    text-decoration: none;
+    text-decoration-color: red;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+ 

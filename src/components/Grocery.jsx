@@ -1,5 +1,7 @@
 const Grocery = () => {
-    return <div>This is an Grocery page</div>;
+    return <div>
+        <h1>This is an Grocery page</h1>
+    </div>;
 };
 
 export default Grocery;
