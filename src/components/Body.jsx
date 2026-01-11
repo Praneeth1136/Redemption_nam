@@ -39,7 +39,12 @@ const Body = () => {
         // // );
         // setfilteredRestaurants(json?.data?.cards);
 
-        const restaurants = json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants; //Cards
+        const cards = json?.data?.cards || [];
+        const restaurantCard = cards.find(
+            card => card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
+        );
+        const restaurants =
+            restaurantCard?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
         setlistOfRestaurants(restaurants);
         setfilteredRestaurants(restaurants);
@@ -85,7 +90,7 @@ const Body = () => {
                     </button>
                     <div>
                         <label>Uername</label>
-                        <input value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
+                        <input value={loggedInUser} onChange={e => setUserName(e.target.value)} />
                     </div>
                 </div>
                 <button

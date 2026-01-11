@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import Grocery from './Grocery';
 import UserContext from '../utils/UseContext';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
     const [btnNameReact, setbtnNameReact] = useState('Log-in');
@@ -15,6 +16,10 @@ const Header = () => {
     useEffect(() => {
         console.log('Header Redered');
     }, [btnNameReact]);
+
+    //Subscribing to the store
+    const cartItems = useSelector(store => store.cart.items);
+    console.log(cartItems);
 
     return (
         <div className="header">
@@ -33,6 +38,9 @@ const Header = () => {
                     </li>
                     <li>
                         <Link to="/Contact">Contact</Link>
+                    </li>
+                    <li>
+                        <Link to="/Cart">Cart {cartItems.length} items</Link>
                     </li>
                     <li>
                         <Link to="/Grocery">Grocery</Link>
