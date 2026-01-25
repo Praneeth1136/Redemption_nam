@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import UserContext from '../utils/UseContext';
 
+const RestaurantPromoted = withPromotedLabel(RestaurantCard);
+
 const Body = () => {
     //Local State Variable - Super powerful variable
     const [listOfRestaurants, setlistOfRestaurants] = useState([]);
     const [filteredRestaurants, setfilteredRestaurants] = useState([]);
 
     const [searchText, setsearchText] = useState('');
-
-    const RestaurantPromoted = withPromotedLabel(RestaurantCard);
 
     const { loggedInUser, setUserName } = useContext(UserContext);
 
@@ -64,69 +64,74 @@ const Body = () => {
     //     <Shimmer />
     // ) : (
     return (
-        <div className="body">
-            <div className="filterr_btn">
-                <div className="search">
-                    <input
-                        type="text"
-                        className="search-box"
-                        value={searchText}
-                        onChange={e => {
-                            setsearchText(e.target.value);
-                        }}
-                    />
+        <div className="max-w-6xl mx-auto px-4 py-6 mt-16">
+            <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+                <div className="flex items-center gap-3 w-full md:w-auto">
+                    <div className="relative w-full md:w-72">
+                        <input
+                            type="text"
+                            placeholder="Search restaurants..."
+                            className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-md focus:outline-none focus:border-gray-400 text-sm"
+                            value={searchText}
+                            onChange={e => {
+                                setsearchText(e.target.value);
+                            }}
+                        />
+                        <svg
+                            className="w-4 h-4 absolute left-3 top-2.5 text-gray-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                            />
+                        </svg>
+                    </div>
                     <button
+                        className="btn-primary cursor-pointer"
                         onClick={() => {
-                            console.log(searchText);
-
                             const filteredRestaurantss = listOfRestaurants.filter(res =>
                                 res.info.name.toLowerCase().includes(searchText.toLowerCase()),
                             );
-
                             setfilteredRestaurants(filteredRestaurantss);
                         }}
                     >
                         Search
                     </button>
-                    <div>
-                        <label>Uername</label>
-                        <input value={loggedInUser} onChange={e => setUserName(e.target.value)} />
+                </div>
+
+                <div className="flex items-center gap-3">
+                    <button
+                        className="flex items-center gap-2 px-3 py-2 border border-gray-200 rounded-md text-sm text-gray-600 hover:bg-gray-50 transition-colors cursor-pointer"
+                        onClick={() => {
+                            const filteredList = listOfRestaurants.filter(
+                                res => res.info.avgRating > 4.0,
+                            );
+                            setlistOfRestaurants(filteredList);
+                            setfilteredRestaurants(filteredList);
+                        }}
+                    >
+                        <span className="text-amber-500">★</span>
+                        Top Rated
+                    </button>
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <span>Hi,</span>
+                        <input
+                            value={loggedInUser}
+                            onChange={e => setUserName(e.target.value)}
+                            className="bg-transparent border-b border-gray-200 focus:border-gray-400 focus:outline-none text-gray-700 w-20"
+                        />
                     </div>
                 </div>
-                <button
-                    className="filter_btn"
-                    onClick={() => {
-                        const filteredList = listOfRestaurants.filter(
-                            res => res.info.avgRating > 4.0,
-                        );
-                        console.log(listOfRestaurants);
-                        setlistOfRestaurants(filteredList);
-                        setfilteredRestaurants(filteredList);
-                    }}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="filter-icon"
-                    >
-                        <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
-                    </svg>
-                    Top Rated
-                </button>
             </div>
-            <div className="res_container">
-                {filteredRestaurants.map((restaurant, index) => (
-                    <Link to="/restaurants/:resid" key={index}>
-                        {/* <RestaurantCard resData={restaurant} /> */}
-                        {/* {restaurant?.info?.adAttribute ||
-                        restaurant?.info?.differentiatedUi?.displayType?.includes('ADS') ||
-                        restaurant?.info?.adTrackingId ? (
-                            <RestaurantPromoted resData={restaurant} />
-                        ) : (
-                            <RestaurantCard resData={restaurant} />
-                        )} */}
 
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                {filteredRestaurants.map((restaurant, index) => (
+                    <Link to={'/restaurants/' + restaurant.info.id} key={restaurant.info.id}>
                         {restaurant?.info?.availability?.opened ? (
                             <RestaurantPromoted resData={restaurant} />
                         ) : (

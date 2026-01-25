@@ -615,173 +615,199 @@ export const resList = [
 ];
 
 export const MOCK_MENU = [
-  {
-    title: "Recommended",
-    itemCards: [
-      {
-        card: {
-          info: {
-            id: "1",
-            name: "Paneer Butter Masala",
-            price: 250,
-            description: "Creamy and rich North Indian curry with soft paneer cubes.",
-            isVeg: true,
-            rating: 4.5
-          }
-        }
-      },
-      {
-        card: {
-          info: {
-            id: "2",
-            name: "Chicken Biryani",
-            price: 320,
-            description: "Fragrant basmati rice cooked with tender chicken pieces and aromatic spices.",
-            isVeg: false,
-            rating: 4.7
-          }
-        }
-      }
-    ]
-  },
-  {
-    title: "Main Course",
-    itemCards: [
-      {
-        card: {
-          info: {
-            id: "3",
-            name: "Butter Chicken",
-            price: 280,
-            description: "Tender chicken in a rich, creamy tomato-based gravy.",
-            isVeg: false,
-            rating: 4.6
-          }
-        }
-      },
-      {
-        card: {
-          info: {
-            id: "4",
-            name: "Dal Makhani",
-            price: 180,
-            description: "Slow-cooked black lentils in butter and cream.",
-            isVeg: true,
-            rating: 4.4
-          }
-        }
-      },
-      {
-        card: {
-          info: {
-            id: "5",
-            name: "Kadai Paneer",
-            price: 240,
-            description: "Cottage cheese cooked with bell peppers in a spicy gravy.",
-            isVeg: true,
-            rating: 4.3
-          }
-        }
-      }
-    ]
-  },
-  {
-    title: "Thalis",
-    itemCards: [
-      {
-        card: {
-          info: {
-            id: "6",
-            name: "Veg Thali",
-            price: 180,
-            description: "A wholesome meal with roti, rice, dal, sabzi, and dessert.",
-            isVeg: true,
-            rating: 4.5
-          }
-        }
-      },
-      {
-        card: {
-          info: {
-            id: "7",
-            name: "Non-Veg Thali",
-            price: 250,
-            description: "Complete meal with chicken curry, rice, roti, dal, and salad.",
-            isVeg: false,
-            rating: 4.6
-          }
-        }
-      }
-    ]
-  },
-  {
-    title: "Breads",
-    itemCards: [
-      {
-        card: {
-          info: {
-            id: "8",
-            name: "Butter Naan",
-            price: 50,
-            description: "Soft and fluffy naan brushed with butter.",
-            isVeg: true,
-            rating: 4.4
-          }
-        }
-      },
-      {
-        card: {
-          info: {
-            id: "9",
-            name: "Garlic Naan",
-            price: 60,
-            description: "Naan topped with fresh garlic and coriander.",
-            isVeg: true,
-            rating: 4.5
-          }
-        }
-      },
-      {
-        card: {
-          info: {
-            id: "10",
-            name: "Tandoori Roti",
-            price: 30,
-            description: "Whole wheat bread baked in tandoor.",
-            isVeg: true,
-            rating: 4.3
-          }
-        }
-      }
-    ]
-  },
-  {
-    title: "Desserts",
-    itemCards: [
-      {
-        card: {
-          info: {
-            id: "11",
-            name: "Gulab Jamun",
-            price: 80,
-            description: "Soft milk dumplings soaked in sugar syrup.",
-            isVeg: true,
-            rating: 4.6
-          }
-        }
-      },
-      {
-        card: {
-          info: {
-            id: "12",
-            name: "Rasmalai",
-            price: 100,
-            description: "Soft paneer patties in creamy, sweetened milk.",
-            isVeg: true,
-            rating: 4.7
-          }
-        }
-      }
-    ]
-  }
+    {
+        title: 'Recommended',
+        itemCards: [
+            {
+                card: {
+                    info: {
+                        id: '1',
+                        name: 'Paneer Butter Masala',
+                        price: 250,
+                        description: 'Creamy and rich North Indian curry with soft paneer cubes.',
+                        isVeg: true,
+                        rating: 4.5,
+                        imageId:
+                            'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+            {
+                card: {
+                    info: {
+                        id: '2',
+                        name: 'Chicken Biryani',
+                        price: 320,
+                        description:
+                            'Fragrant basmati rice cooked with tender chicken pieces and aromatic spices.',
+                        isVeg: false,
+                        rating: 4.7,
+                        imageId:
+                            'https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+        ],
+    },
+    {
+        title: 'Main Course',
+        itemCards: [
+            {
+                card: {
+                    info: {
+                        id: '3',
+                        name: 'Butter Chicken',
+                        price: 280,
+                        description: 'Tender chicken in a rich, creamy tomato-based gravy.',
+                        isVeg: false,
+                        rating: 4.6,
+                        imageId:
+                            'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+            {
+                card: {
+                    info: {
+                        id: '4',
+                        name: 'Dal Makhani',
+                        price: 180,
+                        description: 'Slow-cooked black lentils in butter and cream.',
+                        isVeg: true,
+                        rating: 4.4,
+                        imageId:
+                            'https://images.unsplash.com/photo-1546833999-b9f5816029bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+            {
+                card: {
+                    info: {
+                        id: '5',
+                        name: 'Kadai Paneer',
+                        price: 240,
+                        description: 'Cottage cheese cooked with bell peppers in a spicy gravy.',
+                        isVeg: true,
+                        rating: 4.3,
+                        imageId:
+                            'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+        ],
+    },
+    {
+        title: 'Thalis',
+        itemCards: [
+            {
+                card: {
+                    info: {
+                        id: '6',
+                        name: 'Veg Thali',
+                        price: 180,
+                        description: 'A wholesome meal with roti, rice, dal, sabzi, and dessert.',
+                        isVeg: true,
+                        rating: 4.5,
+                        imageId:
+                            'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+            {
+                card: {
+                    info: {
+                        id: '7',
+                        name: 'Non-Veg Thali',
+                        price: 250,
+                        description:
+                            'Complete meal with chicken curry, rice, roti, dal, and salad.',
+                        isVeg: false,
+                        rating: 4.6,
+                        imageId:
+                            'https://media.istockphoto.com/id/1158623408/photo/indian-hindu-veg-thali-food-platter-selective-focus.jpg?s=612x612&w=0&k=20&c=6h4hX6H6i4f5i5j5kl5m5n5o5p5q5r5s5t5',
+                    },
+                },
+            },
+        ],
+    },
+    {
+        title: 'Breads',
+        itemCards: [
+            {
+                card: {
+                    info: {
+                        id: '8',
+                        name: 'Butter Naan',
+                        price: 50,
+                        description: 'Soft and fluffy naan brushed with butter.',
+                        isVeg: true,
+                        rating: 4.4,
+                        imageId:
+                            'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+            {
+                card: {
+                    info: {
+                        id: '9',
+                        name: 'Garlic Naan',
+                        price: 60,
+                        description: 'Naan topped with fresh garlic and coriander.',
+                        isVeg: true,
+                        rating: 4.5,
+                        imageId:
+                            'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+            {
+                card: {
+                    info: {
+                        id: '10',
+                        name: 'Tandoori Roti',
+                        price: 30,
+                        description: 'Whole wheat bread baked in tandoor.',
+                        isVeg: true,
+                        rating: 4.3,
+                        imageId:
+                            'https://images.unsplash.com/photo-1626082896492-766af4eb6501?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+        ],
+    },
+    {
+        title: 'Desserts',
+        itemCards: [
+            {
+                card: {
+                    info: {
+                        id: '11',
+                        name: 'Gulab Jamun',
+                        price: 80,
+                        description: 'Soft milk dumplings soaked in sugar syrup.',
+                        isVeg: true,
+                        rating: 4.6,
+                        imageId:
+                            'https://images.unsplash.com/photo-1589119908634-b13d23e9e346?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+            {
+                card: {
+                    info: {
+                        id: '12',
+                        name: 'Rasmalai',
+                        price: 100,
+                        description: 'Soft paneer patties in creamy, sweetened milk.',
+                        isVeg: true,
+                        rating: 4.7,
+                        imageId:
+                            'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    },
+                },
+            },
+        ],
+    },
 ];
